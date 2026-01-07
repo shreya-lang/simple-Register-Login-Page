@@ -10,8 +10,11 @@ const cors = require("cors");
 const app = express();
 const PORT = process.env.PORT || 3000;
 
-// MongoDB Connection (LOCAL DB)
-mongoose.connect(process.env.MONGO_URI || "mongodb://localhost:27017/student-course-registration");
+// MongoDB Connection
+mongoose.connect(process.env.MONGO_URI || "mongodb://localhost:27017/student-course-registration", {
+    serverSelectionTimeoutMS: 30000, // Increase timeout to 30 seconds
+    socketTimeoutMS: 45000,
+});
 
 const db = mongoose.connection;
 db.on("error", console.error.bind(console, "MongoDB connection error:"));
