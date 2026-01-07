@@ -11,7 +11,7 @@ const app = express();
 const PORT = process.env.PORT || 3000;
 
 // MongoDB Connection
-mongoose.connect(process.env.MONGO_URI || "mongodb://localhost:27017/student-course-registration", {
+mongoose.connect(process.env.MONGO_URI || "mongodb+srv://shreya:shreya@cluster0.o4b3ujo.mongodb.net/student-course-registration?appName=Cluster0", {
     serverSelectionTimeoutMS: 30000, // Increase timeout to 30 seconds
     socketTimeoutMS: 45000,
 });
